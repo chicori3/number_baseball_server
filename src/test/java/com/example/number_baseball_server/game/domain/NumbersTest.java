@@ -1,5 +1,9 @@
 package com.example.number_baseball_server.game.domain;
 
+import com.example.number_baseball_server.game.domain.factory.NumbersGenerator;
+import com.example.number_baseball_server.game.domain.model.GameResult;
+import com.example.number_baseball_server.game.domain.model.Numbers;
+import com.example.number_baseball_server.game.infrastructure.RandomNumbersGenerate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

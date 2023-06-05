@@ -1,6 +1,6 @@
-package com.example.number_baseball_server.game.infrastructure;
+package com.example.number_baseball_server.game.infrastructure.persistence;
 
-import com.example.number_baseball_server.game.domain.BaseballGame;
+import com.example.number_baseball_server.game.domain.model.BaseballGame;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

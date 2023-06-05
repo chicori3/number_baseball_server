@@ -1,4 +1,4 @@
-package com.example.number_baseball_server.game.domain;
+package com.example.number_baseball_server.game.domain.model;
 
 import jakarta.persistence.Embeddable;
 import lombok.NoArgsConstructor;

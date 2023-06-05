@@ -1,7 +1,8 @@
-package com.example.number_baseball_server.game.infrastructure;
+package com.example.number_baseball_server.game.infrastructure.persistence;
 
-import com.example.number_baseball_server.game.domain.BaseballGame;
-import com.example.number_baseball_server.game.domain.BaseballGameRepository;
+import com.example.number_baseball_server.game.domain.exception.NotFoundGameException;
+import com.example.number_baseball_server.game.domain.model.BaseballGame;
+import com.example.number_baseball_server.game.domain.repository.BaseballGameRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -21,6 +22,6 @@ public class BaseballGameRepositoryAdapter implements BaseballGameRepository {
     @Override
     public BaseballGame findById(Long roomId) {
         return baseballGameRepository.findById(roomId)
-                .orElseThrow(() -> new IllegalArgumentException("해당하는 방이 없습니다."));
+                .orElseThrow(NotFoundGameException::new);
     }
 }

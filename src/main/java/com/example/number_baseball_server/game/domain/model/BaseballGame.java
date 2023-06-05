@@ -1,5 +1,6 @@
-package com.example.number_baseball_server.game.domain;
+package com.example.number_baseball_server.game.domain.model;
 
+import com.example.number_baseball_server.game.domain.exception.NotRemainedCountException;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
