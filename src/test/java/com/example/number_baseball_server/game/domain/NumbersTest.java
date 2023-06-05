@@ -6,17 +6,19 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatCode;
 
 class NumbersTest {
 
+    final int count = 10;
+    NumbersGenerator numbersGenerator = new RandomNumbersGenerate();
 
     @Test
     void generate() {
-        Numbers numbers = new Numbers();
+        List<Integer> generatedNumbers = numbersGenerator.generate(3);
+        Numbers numbers = new Numbers(generatedNumbers);
 
-        assertThatCode(() -> numbers.generateNumbers())
-                .doesNotThrowAnyException();
+        assertThat(generatedNumbers.size()).isEqualTo(3);
+        assertThat(numbers).isNotNull();
     }
 
     @Test
@@ -25,7 +27,7 @@ class NumbersTest {
         List<Integer> inputNumbers = List.of(1, 2, 3);
         Numbers numbers = new Numbers(inputNumbers);
 
-        Result result = numbers.compare(inputNumbers);
+        GameResult result = numbers.compare(inputNumbers, count);
 
         assertThat(result.strike()).isEqualTo(3);
         assertThat(result.ball()).isEqualTo(0);
@@ -38,7 +40,7 @@ class NumbersTest {
         List<Integer> inputNumbers = List.of(3, 2, 1);
         Numbers numbers = new Numbers(List.of(1, 3, 2));
 
-        Result result = numbers.compare(inputNumbers);
+        GameResult result = numbers.compare(inputNumbers, count);
 
         assertThat(result.strike()).isEqualTo(0);
         assertThat(result.ball()).isEqualTo(3);
@@ -51,7 +53,7 @@ class NumbersTest {
         List<Integer> inputNumbers = List.of(4, 5, 6);
         Numbers numbers = new Numbers(List.of(1, 2, 3));
 
-        Result result = numbers.compare(inputNumbers);
+        GameResult result = numbers.compare(inputNumbers, count);
 
         assertThat(result.strike()).isEqualTo(0);
         assertThat(result.ball()).isEqualTo(0);
@@ -64,7 +66,7 @@ class NumbersTest {
         List<Integer> inputNumbers = List.of(1, 2, 3);
         Numbers numbers = new Numbers(List.of(1, 4, 2));
 
-        Result result = numbers.compare(inputNumbers);
+        GameResult result = numbers.compare(inputNumbers, count);
 
         assertThat(result.strike()).isEqualTo(1);
         assertThat(result.ball()).isEqualTo(1);
