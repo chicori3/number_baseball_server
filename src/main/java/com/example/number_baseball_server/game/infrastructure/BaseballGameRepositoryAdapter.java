@@ -15,7 +15,7 @@ public class BaseballGameRepositoryAdapter implements BaseballGameRepository {
 
     @Override
     public Long save(BaseballGame baseballGame) {
-        return baseballGameRepository.save(baseballGame).getRoomId();
+        return baseballGameRepository.save(baseballGame).getId();
     }
 
     @Override
